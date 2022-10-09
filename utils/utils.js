@@ -1,24 +1,14 @@
 const moment = require("moment");
-const formatMessage = (id, username, text) => {
+
+const formatMessage = (id, email, text) => {
   return {
     id,
-    username,
+    email,
     text,
-    time: moment().format("h:mm a"),
+    time: moment().format("DD/MM/YYYY - HH:mm"),
   };
-};
-
-const allProducts = async (productApi) => {
-  const getProducts = await productApi.getAll();
-  const products =
-    getProducts.length > -1 && getProducts.length < 4
-      ? false
-      : JSON.parse(getProducts);
-  console.log("[PRODUCTS]", products);
-  return products;
 };
 
 module.exports = {
   formatMessage,
-  allProducts,
 };
